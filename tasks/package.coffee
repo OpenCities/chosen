@@ -40,7 +40,7 @@ module.exports = (grunt) ->
 
     grunt.file.write('chosen.jquery.json', JSON.stringify(json, null, 2) + "\n")
 
-  grunt.registerTask 'package-npm', 'Generate package/package.json', () ->
+  grunt.registerTask 'package-npm', 'Generate npm manifest', () ->
     pkg = grunt.config.get('pkg')
 
     json =
@@ -57,9 +57,9 @@ module.exports = (grunt) ->
       main: pkg._extra.files[0]
       repository: pkg.repository
 
-    grunt.file.write('package/package.json', JSON.stringify(json, null, 2) + "\n")
+    grunt.file.write('public/package.json', JSON.stringify(json, null, 2) + "\n")
 
-  grunt.registerTask 'package-bower', 'Generate package/bower.json', () ->
+  grunt.registerTask 'package-bower', 'Generate bower manifest', () ->
     pkg = grunt.config.get('pkg')
     extra = pkg._extra
 
@@ -75,7 +75,7 @@ module.exports = (grunt) ->
       ignore: []
       repository: pkg.repository
 
-    grunt.file.write('package/bower.json', JSON.stringify(json, null, 2) + "\n")
+    grunt.file.write('public/bower.json', JSON.stringify(json, null, 2) + "\n")
 
   grunt.registerTask 'prep-release', ['build', 'dom_munger:latest_version', 'zip:chosen', 'package-jquery', 'package-npm', 'package-bower']
   grunt.registerTask 'publish-release', ['gh-pages']
