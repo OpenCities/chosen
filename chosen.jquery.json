@@ -40,8 +40,8 @@
     }
   ],
   "download": "https://github.com/harvesthq/chosen/releases",
-  "homepage": "http://harvesthq.github.io/chosen/",
-  "docs": "http://harvesthq.github.io/chosen/",
+  "homepage": "https://harvesthq.github.io/chosen/",
+  "docs": "https://harvesthq.github.io/chosen/",
   "bugs": "https://github.com/harvesthq/chosen/issues",
   "dependencies": {
     "jquery": ">=1.4.4"
