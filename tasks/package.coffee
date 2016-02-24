@@ -52,7 +52,7 @@ module.exports = (grunt) ->
       license: extra.license.url
       authors: pkg.contributors
       dependencies: pkg.dependencies
-      main: extra.files[0]
+      main: extra.files
       ignore: []
       repository: pkg.repository
 
