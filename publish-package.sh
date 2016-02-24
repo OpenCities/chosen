@@ -5,19 +5,19 @@ set -e
 CURRENT_BRANCH=`git name-rev --name-only HEAD`
 
 if [ $CURRENT_BRANCH != 'master' ] ; then
-  echo "Build not on master. Skipped bower-chosen release"
+  echo "Build not on master. Skipped chosen-package release"
   exit 0
 fi
 
 CHOSEN_VERSION=`git tag --sort=v:refname | tail -1`
 
-git config --global user.email "notmyemail@bower-chosen.lol"
-git config --global user.name "bower-chosen"
-
 git clone https://pfiller:${GH_TOKEN}@github.com/harvesthq/bower-chosen.git
 rm -rf bower-chosen/*
-cp public/bower.json public/*.png public/chosen.jquery.js public/chosen.css bower-chosen/
+cp README.md public/*.json public/*.png public/chosen.jquery.js public/chosen.css bower-chosen/
 cd bower-chosen
+
+git config user.email "chosen@harvesthq.com"
+git config user.name "chosen-package"
 
 LATEST_VERSION=`git tag --sort=v:refname | tail -1`
 
